@@ -1,2 +1,96 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid">
+    <%= link_to "#", class: "navbar-brand" do %>
+      <%= image_tag "https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX20188728.jpg" %> Vintage Wheels
+    <% end %>
+
+    <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+      <div class="search-form-control form-group">
+        <input placeholder="Enter your location or postcode" class="form-control string required" type="text" name="search[query]" id="search_query" />
+        <button name="button" type="submit" class="btn btn-flat">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    <% end %>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <%# if user_signed_in? %>
+          <li class="nav-item active">
+            <%= link_to "Home", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Messages", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item dropdown">
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Action", "#", class: "dropdown-item" %>
+              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%#= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            </div>
+          </li>
+        <%# else %>
+          <!--li class="nav-item"-->
+            <%#= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <!--/li-->
+        <%# end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://wallpaperaccess.com/full/122307.jpg);">
+  <div class="container">
+    <h1>Fuel your daydreams</h1>
+    <br>
+    <h1><strong><em>Vintage Wheels</em></strong> bring <strong>exclusive vintage cars</strong> for <strong>Car Lovers</strong>!</h1>
+    <br>
+    <p>Explore the Europe's largest Vintage car sharing marketplace</p>
+    <br>
+    <p>Select Book Go!!!!!</p>
+  </div>
+</div>
+
+
+<div class = "container-fluid">
+  <div class="card mt-3" style="width: 18rem;">
+    <img src="https://m.media-amazon.com/images/I/71KBmhAR1PL._AC_SX679_.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">VW Bus Samba</h5>
+      <p class="card-text">Volkswagen Van “Samba” diecast model with opening doors and a high level of detail throughout. The iconic two-tone paint design has been recreated here, authentically matching the design of the original with a number of other features that stay faithful to the original. The interior is equally rich in detail, and can be seen through the doors, windows and opening hatch-style boot.</p>
+      <a href="#" class="btn btn-primary">£14.85 | Check Availability</a>
+    </div>
+  </div>
+
+  <%# <div class="card mt-3" style="width: 18rem;">
+    <img src="https://m.media-amazon.com/images/I/71282pX-2kL._AC_SX679_.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Ford Mustang GT 67</h5>
+      <p class="card-text">Beautiful diecast model of a classic 1967 Ford Mustang GT in 1:24 scale. This highly detailed model features an authentic looking chassis complete with opening doors and a hood. Look inside to see even more superbly recreated features including the car’s interior and engine.</p>
+      <a href="#" class="btn btn-primary">£14.85 | Check Availability</a>
+    </div>
+  </div>
+</div> %>
+
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    <%= image_tag "https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX20188728.jpg" %> Vintage Wheels | 2022
+  </div>
+  <div class="footer-copyright">
+    All rights reserved, Built with <i class="fas fa-heart"></i> in London
+  </div>
+</div>
