@@ -14,8 +14,14 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.save
-    redirect_to bookings_path(@bookings)
+    @booking.user = current_user
+    @booking.car_id = params[:car_id]
+    @booking.save!
+    redirect_to my_bookings_path
+  end
+
+  def my_bookings
+    @my_bookings = Booking.where(user_id: current_user.id)
   end
 
 private
