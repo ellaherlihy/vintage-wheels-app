@@ -46,23 +46,26 @@
   </div>
   <p style="color: green"><%= notice %></p>
 
-<div class="container mt-5">
-  <div class="cars-heading mt-5">
-    <center><h1>All cars available</h1></center>
+  <div class="container mt-5 mb-5">
+    <div class="cars-heading mt-5">
+      <center><h1>Available Cars</h1></center>
     </div>
 
-  <% @cars.each do |car| %>
-    <div class = "container-fluid inline">
-      <div class="card mt-3" style="width: 18rem;">
-        <img src="https://americancollectors.com/wp-content/uploads/1st-article-photo-1-690x370-1.jpg" class="card-img-top" alt="...">
+    <div class="cards">
+      <% @cars.each do |car| %>
+      <div class="card">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://m.media-amazon.com/images/I/71282pX-2kL._AC_SX679_.jpg)">
+        </div>
         <div class="card-body">
           <h5 class="card-title"><%= link_to car.model, car_path(car)%></h5>
           <p class="card-text">Volkswagen Van “Samba” diecast "model with opening doors and a high level of detail throughout. The iconic two-tone paint design has been recreated here, authentically matching the design of the original with a number of other features that stay faithful to the original. The interior is equally rich in detail, and can be seen through the doors, windows and opening hatch-style boot.</p>
           <%= link_to "£#{car.price} - Check Availability", car_path(car), class: "btn btn-primary"%>
         </div>
       </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
+
 
   <div class="footer">
     <div class="footer-links">
