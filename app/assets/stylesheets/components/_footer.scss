@@ -1,15 +1,16 @@
 .footer {
-  background: #F4F4F4;
+  background: #9e9a9a;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 50px;
   padding: 0px 50px;
-  color: rgba(0, 0, 0, 0.3);
+  color: rgba(0, 0, 0, 0.7);
   position: fixed;
   left: 0;
   bottom: 0;
   right: 0;
+  opacity: 0.9;
 }
 
 .footer-links {

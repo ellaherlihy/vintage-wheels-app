@@ -57,31 +57,34 @@
   </div>
 </div>
 
-<div>
-  <center><h1 class="mt-5">🔥 Our top picks this week 🔥</h1></center>
-</div>
-<br>
-  <center><%= link_to "View our entire fleet", cars_path, class: "btn btn-primary btn-lg"%></center>
-<div class = "container-fluid">
-  <div class="cards mt-3 mb-5" style="width: 18rem;">
-    <img src="https://m.media-amazon.com/images/I/71KBmhAR1PL._AC_SX679_.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">VW Bus Samba</h5>
-      <p class="card-text">Volkswagen Van “Samba” diecast model with opening doors and a high level of detail throughout. The iconic two-tone paint design has been recreated here, authentically matching the design of the original with a number of other features that stay faithful to the original. The interior is equally rich in detail, and can be seen through the doors, windows and opening hatch-style boot.</p>
-      <a href="#" class="btn btn-primary">£14.85 | Check Availability</a>
-    </div>
+<div class="container">
+  <div>
+    <center><h1 class="mt-5">🔥 Our top picks this week 🔥</h1></center>
   </div>
 
-  <%# <div class="card mt-3" style="width: 18rem;">
-    <img src="https://m.media-amazon.com/images/I/71282pX-2kL._AC_SX679_.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Ford Mustang GT 67</h5>
-      <p class="card-text">Beautiful diecast model of a classic 1967 Ford Mustang GT in 1:24 scale. This highly detailed model features an authentic looking chassis complete with opening doors and a hood. Look inside to see even more superbly recreated features including the car’s interior and engine.</p>
-      <a href="#" class="btn btn-primary">£14.85 | Check Availability</a>
-    </div>
-  </div> %>
-</div>
+  <br>
 
+  <center><%= link_to "View our entire fleet", cars_path, class: "btn btn-primary btn-lg"%></center>
+
+  <div class="container mt-5 mb-5">
+    <div class="cards">
+      <% @cars.each_with_index do |car, index| %>
+        <% if (index < 3) %>
+          <div class="card">
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+            url(https://m.media-amazon.com/images/I/71282pX-2kL._AC_SX679_.jpg)">
+            </div>
+            <div class="card-body">
+            <h5 class="card-title"><%= link_to car.model, car_path(car) %></h5>
+            <p class="card-text">Volkswagen Van “Samba” diecast model with opening doors and a high level of detail throughout. The iconic two-tone paint design has been recreated here, authentically matching the design of the original with a number of other features that stay faithful to the original. The interior is equally rich in detail, and can be seen through the doors, windows and opening hatch-style boot.</p>
+            <%= link_to "£#{car.price} - Check Availability", car_path(car), class: "btn btn-primary"%>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 <div class="footer">
   <div class="footer-links">
