@@ -22,7 +22,7 @@ def car_prepare
   brand = Faker::Vehicle.make
   location = Faker::Address.city
   description = Faker::Vehicle.transmission
-  price = Faker::Number.between(from: 50000, to: 200000)
+  price = Faker::Number.between(from: 100, to: 300)
   features = Faker::Vehicle.standard_specs
   color = Faker::Vehicle.color
   user = User.all.sample.id
