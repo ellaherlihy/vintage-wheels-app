@@ -34,10 +34,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_30_162329) do
     t.string "color"
     t.string "location"
     t.text "description"
-    t.bigint "users_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["users_id"], name: "index_cars_on_users_id"
+    t.index ["user_id"], name: "index_cars_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -56,5 +56,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_30_162329) do
 
   add_foreign_key "bookings", "cars"
   add_foreign_key "bookings", "users"
-  add_foreign_key "cars", "users", column: "users_id"
+  add_foreign_key "cars", "users"
 end
