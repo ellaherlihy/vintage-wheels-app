@@ -2,49 +2,13 @@
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
 # Examples:
-#
+
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
 require 'faker'
-Car.destroy_all
-User.destroy_all
 
-puts 'Creating cars..'
-puts 'Creating users..'
-
-User.create(email: 'deborah@email.com', password: 'password', first_name: 'Deborah', last_name: 'Reis')
-User.create(email: 'chayan@email.com', password: 'password', first_name: 'Chayan', last_name: 'Agarwal')
-User.create(email: 'chun@email.com', password: 'password', first_name: 'Chun', last_name: 'Man')
-User.create(email: 'ella@email.com', password: 'password', first_name: 'Ella', last_name: 'Herlihy')
-
-def car_prepare
-  model = Faker::Vehicle.manufacture
-  year = Faker::Vehicle.year
-  brand = Faker::Vehicle.make
-  location = Faker::Address.city
-  description = Faker::Vehicle.transmission
-  price = Faker::Number.between(from: 50000, to: 200000)
-  features = Faker::Vehicle.standard_specs
-  color = Faker::Vehicle.color
-  user = User.all.sample.id
-  {user_id: user, model: model, year: year, brand: brand, price: price, features: features, color: color, location: location, description: description}
-end
-
-20.times do
-  fake_users = Car.create(car_prepare)
-end
-
-
-5.times do
-  Bookings.create(start_date:Faker::Date.between(from: '2022-08-01', to: '2024-08-01') , end_date:(from: '2022-08-01', to: '2024-08-01') ,user_id: User.all.sample.id , car_id: Car.all.sample.id)
-end
-
-# Bookings.create(start_date:  ,end_date: ,user_id: ,car_id: )
-
-
-car_images = [
-  'https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.detailxperts.net%2Fwp-content%2Fuploads%2F2018%2F03%2FClassic-cars.png&imgrefurl=https%3A%2F%2Fwww.detailxperts.net%2Fblog%2F2017%2F10%2F09%2Fpros-and-cons-of-owning-a-classic-car%2F&tbnid=GVv_-rcSU1YD5M&vet=12ahUKEwiq0O_66on4AhUQUBoKHb9eDdgQMygGegUIARCDAg..i&docid=C-xk-m1sTVdOLM&w=703&h=470&q=vintage%20car%20&ved=2ahUKEwiq0O_66on4AhUQUBoKHb9eDdgQMygGegUIARCDAg',
+@car_images = ['https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.detailxperts.net%2Fwp-content%2Fuploads%2F2018%2F03%2FClassic-cars.png&imgrefurl=https%3A%2F%2Fwww.detailxperts.net%2Fblog%2F2017%2F10%2F09%2Fpros-and-cons-of-owning-a-classic-car%2F&tbnid=GVv_-rcSU1YD5M&vet=12ahUKEwiq0O_66on4AhUQUBoKHb9eDdgQMygGegUIARCDAg..i&docid=C-xk-m1sTVdOLM&w=703&h=470&q=vintage%20car%20&ved=2ahUKEwiq0O_66on4AhUQUBoKHb9eDdgQMygGegUIARCDAg',
   'https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.carcovers.com%2Fmedia%2Fcarcover%2Fresource%2Fclassiccar.jpg&imgrefurl=https%3A%2F%2Fwww.carcovers.com%2Farticles%2Fhow-old-is-a-classic-car&tbnid=L_ODf5Z4BSk-3M&vet=12ahUKEwiq0O_66on4AhUQUBoKHb9eDdgQMygIegUIARCHAg..i&docid=M-AlKeT7noptuM&w=3718&h=2400&q=vintage%20car%20&ved=2ahUKEwiq0O_66on4AhUQUBoKHb9eDdgQMygIegUIARCHAg',
   'https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.ecorentacar.com%2Fblog%2Fwp-content%2Fuploads%2F2019%2F08%2FBlogs-4.jpg&imgrefurl=https%3A%2F%2Fwww.ecorentacar.com%2Fblog%2Ftop-9-reasons-to-hire-vintage-car-for-wedding%2F&tbnid=6B0orEOlP-m9_M&vet=12ahUKEwiq0O_66on4AhUQUBoKHb9eDdgQMygLegUIARCOAg..i&docid=egBpRXtCZmQPYM&w=1000&h=700&q=vintage%20car%20&ved=2ahUKEwiq0O_66on4AhUQUBoKHb9eDdgQMygLegUIARCOAg',
   'https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.pristine-classics.com%2Fwp-content%2Fuploads%2Frevslider%2Fhome_slider%2Falfa-spider-hire1.jpg&imgrefurl=https%3A%2F%2Fwww.pristine-classics.com%2F&tbnid=ZwEmjjXrVcwgqM&vet=12ahUKEwiq0O_66on4AhUQUBoKHb9eDdgQMygMegUIARCQAg..i&docid=MxKSpkm_FvH_-M&w=1980&h=650&q=vintage%20car%20&ved=2ahUKEwiq0O_66on4AhUQUBoKHb9eDdgQMygMegUIARCQAg',
@@ -73,7 +37,7 @@ car_images = [
   'https://www.google.com/imgres?imgurl=https%3A%2F%2Fc4.wallpaperflare.com%2Fwallpaper%2F24%2F591%2F707%2Fcar-1920x1200-old-wallpaper-preview.jpg&imgrefurl=https%3A%2F%2Fwww.wallpaperflare.com%2Fcar-1920x1200-old-cool-classic-alluring-facebook-astonishing-wallpaper-udswp&tbnid=7iDhp5mx3vdJwM&vet=10CDkQMyjpAWoXChMI0OXKhuyJ-AIVAAAAAB0AAAAAEAM..i&docid=1Dk2FC7zXciQFM&w=728&h=455&q=cool%20vintage%20car&ved=0CDkQMyjpAWoXChMI0OXKhuyJ-AIVAAAAAB0AAAAAEAM',
   'https://www.google.com/imgres?imgurl=https%3A%2F%2Fstorage.googleapis.com%2Fnub-news-files%2Fnub-news-file-storage%2F283678%2F430_n_48_2078_1.jpg&imgrefurl=https%3A%2F%2Fcongleton.nub.news%2Fnews%2Flocal-news%2Fcharity-vintage-car-show-to-come-to-congleton-this-year&tbnid=T4kSPuGqs6UOuM&vet=10CGsQMyj-AWoXChMI0OXKhuyJ-AIVAAAAAB0AAAAAEAM..i&docid=CSihOsh5rt3PtM&w=750&h=452&q=cool%20vintage%20car&ved=0CGsQMyj-AWoXChMI0OXKhuyJ-AIVAAAAAB0AAAAAEAM',
   'https://www.google.com/imgres?imgurl=https%3A%2F%2Fget.wallhere.com%2Fphoto%2Fcar-vehicle-sports-car-Vintage-car-Jaguar-classic-car-Jaguar-XK120-retro-auto-classic-land-vehicle-automotive-design-race-car-automobile-make-luxury-vehicle-antique-car-mid-size-car-jaguar-xk150-jaguar-xk140-579440.jpg&imgrefurl=https%3A%2F%2Fwallhere.com%2Fen%2Fwallpaper%2F579440&tbnid=7e57fbbhIKkB2M&vet=10CI0BEDMojgJqFwoTCNDlyobsifgCFQAAAAAdAAAAABAD..i&docid=1H9k2o7AIBMfdM&w=1920&h=1080&q=cool%20vintage%20car&ved=0CI0BEDMojgJqFwoTCNDlyobsifgCFQAAAAAdAAAAABAD',
-  'https://www.google.com/url?sa=i&url=https%3A%2F%2Fcoolwallpapers.me%2F3331368-jaguar-sport-car-vintage-car.html&psig=AOvVaw2fejvibpeJbq0IWlTa5Am6&ust=1654090075827000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCNDlyobsifgCFQAAAAAdAAAAABAR'
+  'https://www.google.com/url?sa=i&url=https%3A%2F%2Fcoolwallpapers.me%2F3331368-jaguar-sport-car-vintage-car.html&psig=AOvVaw2fejvibpeJbq0IWlTa5Am6&ust=1654090075827000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCNDlyobsifgCFQAAAAAdAAAAABAR',
   'https://www.google.com/imgres?imgurl=https%3A%2F%2Fstatic1.hotcarsimages.com%2Fwordpress%2Fwp-content%2Fuploads%2F2022%2F05%2FFacel-Vega-Facel-II-.jpeg%3Fq%3D50%26fit%3Dcrop%26w%3D737%26h%3D400%26dpr%3D1.5&imgrefurl=https%3A%2F%2Fwww.hotcars.com%2Fcars-of-the-2000s-thatll-be-worth-a-lot-of-money-in-the-future%2F&tbnid=aEOh9JmQ29GK9M&vet=10CBEQMyjAAmoXChMI0OXKhuyJ-AIVAAAAAB0AAAAAEA8..i&docid=M4JyoIaAmJdeNM&w=737&h=400&itg=1&q=cool%20vintage%20car&ved=0CBEQMyjAAmoXChMI0OXKhuyJ-AIVAAAAAB0AAAAAEA8',
   'https://www.google.com/imgres?imgurl=https%3A%2F%2Fautowise.com%2Fwp-content%2Fuploads%2F2012%2F09%2F1963-Chevrolet-Corvette.jpg&imgrefurl=https%3A%2F%2Fautowise.com%2F10-cool-classic-cars%2F&tbnid=4YoA3LJIxSuXNM&vet=10CDYQMyjOAmoXChMI0OXKhuyJ-AIVAAAAAB0AAAAAEA8..i&docid=4CvoYGTyAdVsbM&w=800&h=400&q=cool%20vintage%20car&ved=0CDYQMyjOAmoXChMI0OXKhuyJ-AIVAAAAAB0AAAAAEA8',
   'https://www.google.com/imgres?imgurl=https%3A%2F%2Fcoolclassicclub.com%2Fwp-content%2Fuploads%2F2021%2F03%2FFerrari-365GT-groen-.jpg&imgrefurl=https%3A%2F%2Fcoolclassicclub.com%2Fen%2Fclassics%2Fferrari-365-gt-22%2F&tbnid=rBRRBY6AIiNQsM&vet=10CLkBEDMoiQNqFwoTCNDlyobsifgCFQAAAAAdAAAAABAP..i&docid=GXo3D_Ao374A4M&w=2500&h=1667&q=cool%20vintage%20car&ved=0CLkBEDMoiQNqFwoTCNDlyobsifgCFQAAAAAdAAAAABAP',
@@ -82,8 +46,34 @@ car_images = [
   'https://www.google.com/imgres?imgurl=https%3A%2F%2Fd39a3h63xew422.cloudfront.net%2Fwp-content%2Fuploads%2F2014%2F09%2F20152947%2Fthe-ten-best-classic-cars-to-drive-daily-1476934695393-1000x563.jpg&imgrefurl=https%3A%2F%2Fpetrolicious.com%2Farticles%2Fthe-ten-best-classic-cars-to-drive-daily&tbnid=s4ufXR8dh3u1sM&vet=12ahUKEwi5x5_I8In4AhWpg84BHQOwBjkQMygZegUIARCcAg..i&docid=mrTJQtvzuU4wSM&w=1000&h=563&q=cool%20vintage%20car&ved=2ahUKEwi5x5_I8In4AhWpg84BHQOwBjkQMygZegUIARCcAg',
   'https://www.google.com/imgres?imgurl=https%3A%2F%2Fimg.drivemag.net%2Fmedia%2Fdefault%2F0001%2F70%2Fretro-styled-cars-02-6109-default-large.jpeg&imgrefurl=https%3A%2F%2Fdrivemag.com%2Fred-calipers%2Fhere-s-a-list-of-10-cool-retro-styled-cars-you-can-buy-today&tbnid=Ualy1z7Ejs2SdM&vet=12ahUKEwi5x5_I8In4AhWpg84BHQOwBjkQMygdegUIARClAg..i&docid=HRPkXNU4AvovjM&w=1200&h=900&q=cool%20vintage%20car&ved=2ahUKEwi5x5_I8In4AhWpg84BHQOwBjkQMygdegUIARClAg',
   'https://www.google.com/imgres?imgurl=http%3A%2F%2Fimages6.fanpop.com%2Fimage%2Fphotos%2F41100000%2Fcool-cars-wallpaper-wallpapers-old-nice-pictures-folder-images-vintage-cars-41131683-1920-1080.jpg&imgrefurl=https%3A%2F%2Fwww.fanpop.com%2Fclubs%2Fvintage-cars%2Fimages%2F41131683%2Ftitle%2Fcool-cars-wallpaper-wallpapers-old-nice-pictures-folder-images-photo&tbnid=If9VtIFRKvXe7M&vet=12ahUKEwi5x5_I8In4AhWpg84BHQOwBjkQMyglegUIARC1Ag..i&docid=6Pw69GBctgkFXM&w=1920&h=1080&q=cool%20vintage%20car&ved=2ahUKEwi5x5_I8In4AhWpg84BHQOwBjkQMyglegUIARC1Ag',
-  'https://www.google.com/imgres?imgurl=https%3A%2F%2Fcdn.wallpapersafari.com%2F63%2F18%2FYSjGst.jpg&imgrefurl=https%3A%2F%2Fwallpapersafari.com%2Fw%2FYSjGst&tbnid=LQlxhETHKGwxJM&vet=12ahUKEwi5x5_I8In4AhWpg84BHQOwBjkQMyhRegUIARCwAQ..i&docid=je11YmLRl10MAM&w=1920&h=1080&q=cool%20vintage%20car&ved=2ahUKEwi5x5_I8In4AhWpg84BHQOwBjkQMyhRegUIARCwAQ'
-]
+  'https://www.google.com/imgres?imgurl=https%3A%2F%2Fcdn.wallpapersafari.com%2F63%2F18%2FYSjGst.jpg&imgrefurl=https%3A%2F%2Fwallpapersafari.com%2Fw%2FYSjGst&tbnid=LQlxhETHKGwxJM&vet=12ahUKEwi5x5_I8In4AhWpg84BHQOwBjkQMyhRegUIARCwAQ..i&docid=je11YmLRl10MAM&w=1920&h=1080&q=cool%20vintage%20car&ved=2ahUKEwi5x5_I8In4AhWpg84BHQOwBjkQMyhRegUIARCwAQ']
 
+Car.destroy_all
+User.destroy_all
 
-car_images.sample
+User.create(email: 'deborah@email.com', password: 'password', first_name: 'Deborah', last_name: 'Reis')
+User.create(email: 'chayan@email.com', password: 'password', first_name: 'Chayan', last_name: 'Agarwal')
+User.create(email: 'chun@email.com', password: 'password', first_name: 'Chun', last_name: 'Man')
+User.create(email: 'ella@email.com', password: 'password', first_name: 'Ella', last_name: 'Herlihy')
+
+def car_prepare
+  model = Faker::Vehicle.manufacture
+  year = Faker::Vehicle.year
+  brand = Faker::Vehicle.make
+  location = Faker::Address.city
+  description = Faker::Vehicle.transmission
+  price = Faker::Number.between(from: 50000, to: 200000)
+  features = Faker::Vehicle.standard_specs
+  color = Faker::Vehicle.color
+  user = User.all.sample.id
+  photo_url = @car_images.sample
+  {user_id: user, model: model, year: year, brand: brand, price: price, features: features, color: color, location: location, description: description, photo_url: photo_url}
+end
+
+20.times do
+  fake_users = Car.create(car_prepare)
+end
+
+5.times do
+  Booking.create(start_date:Faker::Date.between(from: '2022-08-01', to: '2024-08-01') , end_date: Faker::Date.between(from: '2022-08-01', to: '2024-08-01') ,user_id: User.all.sample.id , car_id: Car.all.sample.id)
+end
