@@ -6,8 +6,6 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-require 'faker'
-
 @car_images = ['https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.detailxperts.net%2Fwp-content%2Fuploads%2F2018%2F03%2FClassic-cars.png&imgrefurl=https%3A%2F%2Fwww.detailxperts.net%2Fblog%2F2017%2F10%2F09%2Fpros-and-cons-of-owning-a-classic-car%2F&tbnid=GVv_-rcSU1YD5M&vet=12ahUKEwiq0O_66on4AhUQUBoKHb9eDdgQMygGegUIARCDAg..i&docid=C-xk-m1sTVdOLM&w=703&h=470&q=vintage%20car%20&ved=2ahUKEwiq0O_66on4AhUQUBoKHb9eDdgQMygGegUIARCDAg',
   'https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.carcovers.com%2Fmedia%2Fcarcover%2Fresource%2Fclassiccar.jpg&imgrefurl=https%3A%2F%2Fwww.carcovers.com%2Farticles%2Fhow-old-is-a-classic-car&tbnid=L_ODf5Z4BSk-3M&vet=12ahUKEwiq0O_66on4AhUQUBoKHb9eDdgQMygIegUIARCHAg..i&docid=M-AlKeT7noptuM&w=3718&h=2400&q=vintage%20car%20&ved=2ahUKEwiq0O_66on4AhUQUBoKHb9eDdgQMygIegUIARCHAg',
   'https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.ecorentacar.com%2Fblog%2Fwp-content%2Fuploads%2F2019%2F08%2FBlogs-4.jpg&imgrefurl=https%3A%2F%2Fwww.ecorentacar.com%2Fblog%2Ftop-9-reasons-to-hire-vintage-car-for-wedding%2F&tbnid=6B0orEOlP-m9_M&vet=12ahUKEwiq0O_66on4AhUQUBoKHb9eDdgQMygLegUIARCOAg..i&docid=egBpRXtCZmQPYM&w=1000&h=700&q=vintage%20car%20&ved=2ahUKEwiq0O_66on4AhUQUBoKHb9eDdgQMygLegUIARCOAg',
@@ -48,8 +46,12 @@ require 'faker'
   'https://www.google.com/imgres?imgurl=http%3A%2F%2Fimages6.fanpop.com%2Fimage%2Fphotos%2F41100000%2Fcool-cars-wallpaper-wallpapers-old-nice-pictures-folder-images-vintage-cars-41131683-1920-1080.jpg&imgrefurl=https%3A%2F%2Fwww.fanpop.com%2Fclubs%2Fvintage-cars%2Fimages%2F41131683%2Ftitle%2Fcool-cars-wallpaper-wallpapers-old-nice-pictures-folder-images-photo&tbnid=If9VtIFRKvXe7M&vet=12ahUKEwi5x5_I8In4AhWpg84BHQOwBjkQMyglegUIARC1Ag..i&docid=6Pw69GBctgkFXM&w=1920&h=1080&q=cool%20vintage%20car&ved=2ahUKEwi5x5_I8In4AhWpg84BHQOwBjkQMyglegUIARC1Ag',
   'https://www.google.com/imgres?imgurl=https%3A%2F%2Fcdn.wallpapersafari.com%2F63%2F18%2FYSjGst.jpg&imgrefurl=https%3A%2F%2Fwallpapersafari.com%2Fw%2FYSjGst&tbnid=LQlxhETHKGwxJM&vet=12ahUKEwi5x5_I8In4AhWpg84BHQOwBjkQMyhRegUIARCwAQ..i&docid=je11YmLRl10MAM&w=1920&h=1080&q=cool%20vintage%20car&ved=2ahUKEwi5x5_I8In4AhWpg84BHQOwBjkQMyhRegUIARCwAQ']
 
+require 'faker'
+Booking.destroy_all
 Car.destroy_all
 User.destroy_all
+puts 'Creating cars..'
+puts 'Creating users..'
 
 User.create(email: 'deborah@email.com', password: 'password', first_name: 'Deborah', last_name: 'Reis')
 User.create(email: 'chayan@email.com', password: 'password', first_name: 'Chayan', last_name: 'Agarwal')
@@ -66,6 +68,7 @@ def car_prepare
   features = Faker::Vehicle.standard_specs
   color = Faker::Vehicle.color
   user = User.all.sample.id
+
   photo_url = @car_images.sample
   {user_id: user, model: model, year: year, brand: brand, price: price, features: features, color: color, location: location, description: description, photo_url: photo_url}
 end
@@ -74,6 +77,7 @@ end
   fake_users = Car.create(car_prepare)
 end
 
+puts 'Creating bookings..'
 5.times do
   Booking.create(start_date:Faker::Date.between(from: '2022-08-01', to: '2024-08-01') , end_date: Faker::Date.between(from: '2022-08-01', to: '2024-08-01') ,user_id: User.all.sample.id , car_id: Car.all.sample.id)
 end

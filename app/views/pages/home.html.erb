@@ -21,17 +21,16 @@
       <ul class="navbar-nav me-auto">
         <%# if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
+          <%# <li class="nav-item">
+            <%= link_to "Messages", "#", class: "nav-link" </li> %>
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%#= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              <%# <%= link_to "Action", "#", class: "dropdown-item" %>
+              <%# <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
         <%# else %>
@@ -45,21 +44,26 @@
 </div>
 
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://wallpaperaccess.com/full/122307.jpg);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(https://www.carcovers.com/media/carcover/resource/classiccar.jpg);">
   <div class="container">
-    <h1>Fuel your daydreams</h1>
+  <br>
+  <br>
+    <h1>Fuel your daydreams...</h1>
     <br>
-    <h1><strong><em>Vintage Wheels</em></strong> bring <strong>exclusive vintage cars</strong> for <strong>Car Lovers</strong>!</h1>
+    <h1><strong><em>Vintage Wheels</em></strong> brings <strong>exclusive vintage cars</strong> to <strong>car lovers ❤️</strong></h1>
+    <p>Explore Europe's largest vintage & classic car sharing marketplace</p>
     <br>
-    <p>Explore the Europe's largest Vintage car sharing marketplace</p>
-    <br>
-    <p>Select Book Go!!!!!</p>
+    <center><%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-lg"%></center>
   </div>
 </div>
 
-
+<div>
+  <center><h1 class="mt-5">🔥 Our top picks this week 🔥</h1></center>
+</div>
+<br>
+  <center><%= link_to "View our entire fleet", cars_path, class: "btn btn-primary btn-lg"%></center>
 <div class = "container-fluid">
-  <div class="card mt-3" style="width: 18rem;">
+  <div class="cards mt-3 mb-5" style="width: 18rem;">
     <img src="https://m.media-amazon.com/images/I/71KBmhAR1PL._AC_SX679_.jpg" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">VW Bus Samba</h5>
@@ -75,8 +79,8 @@
       <p class="card-text">Beautiful diecast model of a classic 1967 Ford Mustang GT in 1:24 scale. This highly detailed model features an authentic looking chassis complete with opening doors and a hood. Look inside to see even more superbly recreated features including the car’s interior and engine.</p>
       <a href="#" class="btn btn-primary">£14.85 | Check Availability</a>
     </div>
-  </div>
-</div> %>
+  </div> %>
+</div>
 
 
 <div class="footer">

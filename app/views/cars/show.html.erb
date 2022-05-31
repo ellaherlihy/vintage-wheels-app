@@ -45,25 +45,48 @@
     </div>
   </div>
 
-<div class="container">
-
-<h2 class="mt-5">Log in</h2>
-  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name),
-    data: {turbo: false}) do |f| %>
-      <%= f.input :email,
-                  required: false,
-                  autofocus: true,
-                  input_html: { autocomplete: "email" } %>
-      <%= f.input :password,
-                  required: false,
-                  input_html: { autocomplete: "current-password" } %>
-      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1587750059638-e7e8c43b99fc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2xhc3NpYyUyMGNhcnxlbnwwfHwwfHw%3D&w=1000&q=80);">
+    <div class="container">
+      <h1><%="#{@car.brand} #{@car.model}, #{@car.year}"%></h1>
+      <br>
+      <p>A timeless classic</p>
+      <br>
+      <center><button class="btn btn-primary btn-lg">Click here to book</button></center>
     </div>
+  </div>
 
-    <div class="form-actions">
-      <%= f.button :submit, "Log in", class:"container"%>
+  <p style="color: green"><%= notice %></p>
+
+  <div class="container">
+    <div class="car-heading">
+      <h1>Car Details</h1>
+      </div>
+
+    <div class="car-card">
+      <ul>
+        <li><%= "Brand: #{@car.brand}" %></li>
+        <li><%= "Model: #{@car.model}" %></li>
+        <li><%= "Year: #{@car.year}" %></li>
+        <li><%= "Color: #{@car.color}" %></li>
+        <li><%= "Price: £#{@car.year}" %></li>
+      </ul>
     </div>
-  <%= render "devise/shared/links", class: "container mt-5" %>
-  <% end %>
+  </div>
 
-</div>
+  <div class="footer">
+    <div class="footer-links">
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <div class="footer-copyright">
+      <%= image_tag "https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX20188728.jpg" %> Vintage Wheels | 2022
+    </div>
+    <div class="footer-copyright">
+      All rights reserved, Built with <i class="fas fa-heart"></i> in London
+    </div>
+  </div>
+
+</body>
