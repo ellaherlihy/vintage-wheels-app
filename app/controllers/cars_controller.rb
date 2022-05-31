@@ -1,6 +1,9 @@
 class CarsController < ApplicationController
   def index
     @cars = Car.all
+    if params[:search]
+      @cars = @cars.where("location ILIKE ?", "%#{params[:search][:query]}%")
+    end
   end
 
   def new
@@ -19,7 +22,6 @@ class CarsController < ApplicationController
 
 private
   def car_params
-    params.require(:car).permit(:mode, :year, :brand, :price, :features, :color, :location, :description, :users_id)
+    params.require(:car).permit(:mode, :year, :brand, :price, :features, :color, :location, :description, :users_id, :photo_url)
   end
-
 end
