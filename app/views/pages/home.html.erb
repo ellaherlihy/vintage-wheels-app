@@ -25,12 +25,12 @@
           </li>
           <%# <li class="nav-item">
             <%= link_to "Messages", "#", class: "nav-link" </li> %>
-          <li class="nav-item dropdown">
+          <%# <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <%# <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown"> %>
               <%# <%= link_to "Action", "#", class: "dropdown-item" %>
               <%# <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              <%# <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
         <%# else %>
@@ -72,7 +72,7 @@
         <% if (index < 3) %>
           <div class="card">
             <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-            url(https://m.media-amazon.com/images/I/71282pX-2kL._AC_SX679_.jpg)">
+            url(https://cdn.luxe.digital/media/2021/11/26104913/best-classic-cars-vintage-Jaguar-E-Type-1961-old-luxe-digital%402x.jpg.webp)">
             </div>
             <div class="card-body">
             <h5 class="card-title"><%= link_to car.model, car_path(car) %></h5>
