@@ -56,7 +56,7 @@
     <div class="cards">
       <% @cars.each do |car| %>
       <div class="card">
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://m.media-amazon.com/images/I/71282pX-2kL._AC_SX679_.jpg)">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= car.photo_url %>)">
         </div>
         <div class="card-body">
           <center><h5 class="card-title"><%= link_to "#{car.brand} #{car.model}", car_path(car)%></h5></center>
