@@ -21,6 +21,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto">
           <%# if user_signed_in? %>
+            <%= link_to "Sign Up", new_user_registration_path, class: "nav-link"%>
             <li class="nav-item active">
               <%= link_to "Login", new_user_session_path, class: "nav-link" %>
             </li>
@@ -51,10 +52,6 @@
     <br>
     <br>
     <br>
-    <br>
-    <br>
-    <br>
-    <br>
     <div class="container">
       <h1><%="#{@car.brand} #{@car.model}, #{@car.year}"%></h1>
       <br>
@@ -70,14 +67,8 @@
       <a class="btn btn-gradient m-2" href=<%= new_car_booking_path(@car) %>>Click to Book</a>
       <a class="btn btn-gradient m-2" href=<%= cars_path(@car) %>>Back to Car List</a>
   </div>
-
-  <div class="container mt-5">
-    <div class="car-heading">
-      <h1>Car Details</h1>
-    </div>
-
-    <center><%= link_to "Book this car", new_car_booking_path(@car), class: "btn btn-primary btn-lg" %></center>
-
+  <hr>
+  <div class="container">
     <div class="car-card flex-container">
       <ul style="list-style: none">
         <h1>Car Details</h1>
@@ -89,6 +80,7 @@
         <li style="color: red"><b><%= "£#{@car.price} per day" %></b></li>
       </ul>
     </div>
+  </div>
     <br>
     <br>
     <br>
