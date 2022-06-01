@@ -65,7 +65,16 @@
 
   <p style="color: green"><%= notice %></p>
 
-  <div class="container">
+  <div class="container mt-3 d-flex justify-content-center">
+      <a class="btn btn-gradient m-2" <%= link_to "Delete Car", car_path(@car), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></a>
+      <a class="btn btn-gradient m-2" href=<%= new_car_booking_path(@car) %>>Click to Book</a>
+      <a class="btn btn-gradient m-2" href=<%= cars_path(@car) %>>Back to Car List</a>
+  </div>
+
+  <div class="container mt-5">
+    <div class="car-heading">
+      <h1>Car Details</h1>
+    </div>
 
     <center><%= link_to "Book this car", new_car_booking_path(@car), class: "btn btn-primary btn-lg" %></center>
 

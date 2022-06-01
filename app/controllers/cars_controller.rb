@@ -16,6 +16,12 @@ class CarsController < ApplicationController
     redirect_to car_path(@car)
   end
 
+  def destroy
+    @car = Car.find(params[:id])
+    @car.destroy
+    redirect_to car_path(@car), status: :see_other
+  end
+
   def show
     @car = Car.find(params[:id])
     @booking = Booking.new
@@ -23,6 +29,6 @@ class CarsController < ApplicationController
 
 private
   def car_params
-    params.require(:car).permit(:mode, :year, :brand, :price, :features, :color, :location, :description, :users_id, :photo_url)
+    params.require(:car).permit(:model, :year, :brand, :price, :features, :color, :location, :description, :users_id, :photo_url)
   end
 end
