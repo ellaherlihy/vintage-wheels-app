@@ -45,7 +45,16 @@
     </div>
   </div>
 
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cdn.luxe.digital/media/2021/11/26104943/best-classic-cars-vintage-Oldsmobile-Starfire-Convertible-1962-old-luxe-digital%402x.jpg.webp);">
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url(<%=@car.photo_url%>)">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <div class="container">
       <h1><%="#{@car.brand} #{@car.model}, #{@car.year}"%></h1>
       <br>
@@ -57,37 +66,37 @@
   <p style="color: green"><%= notice %></p>
 
   <div class="container">
-      <center><button class="btn btn-primary btn-lg">Click here to book</button></center>
-    <div class="car-heading">
-      <h1>Car Details</h1>
-      </div>
 
-    <div class="car-card">
+    <center><%= link_to "Book this car", new_car_booking_path(@car), class: "btn btn-primary btn-lg" %></center>
+
+    <div class="car-card flex-container">
       <ul style="list-style: none">
+        <h1>Car Details</h1>
         <li ><%= "Brand: #{@car.brand}" %></li>
         <li><%= "Model: #{@car.model}" %></li>
         <li><%= "Year: #{@car.year}" %></li>
         <li><%= "Color: #{@car.color}" %></li>
-        <li><%= "Transmission: #{@car.description}" %></li>
+        <li style="italic"><%= "#{@car.description}" %></li>
         <li style="color: red"><b><%= "£#{@car.price} per day" %></b></li>
       </ul>
     </div>
-  </div>
-
-  <div class="footer">
-    <div class="footer-links">
-      <a href="#"><i class="fab fa-github"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-linkedin"></i></a>
+    <br>
+    <br>
+    <br>
+    <div class="footer">
+      <div class="footer-links">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <div class="footer-copyright">
+        <%= image_tag "https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX20188728.jpg" %> Vintage Wheels | 2022
+      </div>
+      <div class="footer-copyright">
+        All rights reserved, Built with <i class="fas fa-heart"></i> in London
+      </div>
     </div>
-    <div class="footer-copyright">
-      <%= image_tag "https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX20188728.jpg" %> Vintage Wheels | 2022
-    </div>
-    <div class="footer-copyright">
-      All rights reserved, Built with <i class="fas fa-heart"></i> in London
-    </div>
-  </div>
 
 </body>
