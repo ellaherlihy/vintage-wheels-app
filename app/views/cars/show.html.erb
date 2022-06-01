@@ -58,7 +58,7 @@
     <div class="container">
       <h1><%="#{@car.brand} #{@car.model}, #{@car.year}"%></h1>
       <br>
-      <p>A timeless classic</p>
+      <h2>A timeless classic</h2>
       <br>
     </div>
   </div>
@@ -76,7 +76,7 @@
         <li><%= "Model: #{@car.model}" %></li>
         <li><%= "Year: #{@car.year}" %></li>
         <li><%= "Color: #{@car.color}" %></li>
-        <li style="italic"><%= "#{@car.description}" %></li>
+        <li><%= "#{@car.description}"%></li>
         <li style="color: red"><b><%= "£#{@car.price} per day" %></b></li>
       </ul>
     </div>
