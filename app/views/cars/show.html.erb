@@ -25,13 +25,13 @@
               <%= link_to "Login", new_user_session_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <%= link_to "Messages", "#", class: "nav-link" %>
+              <%# <%= link_to "Messages", "#", class: "nav-link" %>
             </li>
-            <li class="nav-item dropdown">
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <%= link_to "Action", "#", class: "dropdown-item" %>
-                <%= link_to "Another action", "#", class: "dropdown-item" %>
+            <%# <li class="nav-item dropdown"> %>
+              <%# <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <%# <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown"> %>
+                <%# <%= link_to "Action", "#", class: "dropdown-item" %>
+                <%# <%= link_to "Another action", "#", class: "dropdown-item" %>
                 <%#= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
               </div>
             </li>
@@ -45,30 +45,31 @@
     </div>
   </div>
 
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1587750059638-e7e8c43b99fc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2xhc3NpYyUyMGNhcnxlbnwwfHwwfHw%3D&w=1000&q=80);">
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cdn.luxe.digital/media/2021/11/26104943/best-classic-cars-vintage-Oldsmobile-Starfire-Convertible-1962-old-luxe-digital%402x.jpg.webp);">
     <div class="container">
       <h1><%="#{@car.brand} #{@car.model}, #{@car.year}"%></h1>
       <br>
       <p>A timeless classic</p>
       <br>
-      <center><button class="btn btn-primary btn-lg">Click here to book</button></center>
     </div>
   </div>
 
   <p style="color: green"><%= notice %></p>
 
   <div class="container">
+      <center><button class="btn btn-primary btn-lg">Click here to book</button></center>
     <div class="car-heading">
       <h1>Car Details</h1>
       </div>
 
     <div class="car-card">
-      <ul>
-        <li><%= "Brand: #{@car.brand}" %></li>
+      <ul style="list-style: none">
+        <li ><%= "Brand: #{@car.brand}" %></li>
         <li><%= "Model: #{@car.model}" %></li>
         <li><%= "Year: #{@car.year}" %></li>
         <li><%= "Color: #{@car.color}" %></li>
-        <li><%= "Price: £#{@car.year}" %></li>
+        <li><%= "Transmission: #{@car.description}" %></li>
+        <li style="color: red"><b><%= "£#{@car.price} per day" %></b></li>
       </ul>
     </div>
   </div>
