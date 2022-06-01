@@ -1,8 +1,22 @@
-<h1>My Bookings</h1>
-<div>
+<body>
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    <div class="container-fluid">
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <%= image_tag "https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX20188728.jpg" %> Vintage Wheels
+      <% end %>
+    </div>
+    </div>
+<br>
+<div class='m-4'>
+<h1 class="mb-5 text-primary display-6">All My Bookings Records</h1>
   <% @my_bookings.each do |booking| %>
-    <p><%= booking.start_date %></p>
-  <% end %>
+   <ul>
+    <li class='text-primary'><%= "#{booking.start_date} to #{booking.end_date}" %></li>
+        <%= "Brand: #{booking.car.brand} Model: #{booking.car.model}, Year: #{booking.car.year}"%>
+   </ul>
+    <% end %>
   <br>
-  <%= link_to "Go back home", cars_path %>
+  <%= link_to "Go back home", cars_path, class:'btn btn-primary' %>
 </div>
+
+</body>

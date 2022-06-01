@@ -63,11 +63,10 @@
     <div class="cards">
       <% @cars.each do |car| %>
       <div class="card">
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.3)), url(https://cdn.luxe.digital/media/2021/11/26104936/best-classic-cars-vintage-old-luxe-digital%402x.jpg.webp)">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.3)), url(<%=car.photo_url%>)">
         </div>
         <div class="card-body">
           <center><h5 class="card-title"><%= link_to "#{car.brand} #{car.model}", car_path(car)%></h5></center>
-          <%# <p class="card-text">Volkswagen Van “Samba” diecast "model with opening doors and a high level of detail throughout. The iconic two-tone paint design has been recreated here, authentically matching the design of the original with a number of other features that stay faithful to the original. The interior is equally rich in detail, and can be seen through the doors, windows and opening hatch-style boot.</p> %>
           <center><%= "£#{car.price} per day"%></center>
           <center><%=link_to "Find out more", car_path(car), class: "btn btn-primary"%></center>
         </div>

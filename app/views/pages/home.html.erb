@@ -44,40 +44,37 @@
 </div>
 
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url(https://www.carcovers.com/media/carcover/resource/classiccar.jpg);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.carcovers.com/media/carcover/resource/classiccar.jpg);">
   <div class="container">
   <br>
   <br>
-    <h1>Fuel your daydreams...</h1>
+    <h1><strong><em>Vintage Wheels</em></strong></h1>
     <br>
-    <h1><strong><em>Vintage Wheels</em></strong> brings <strong>exclusive vintage cars</strong> to <strong>car lovers ❤️</strong></h1>
+    <h2><strong>Exclusive vintage cars for car lovers ❤️</strong></h2>
     <p>Explore Europe's largest vintage & classic car sharing marketplace</p>
     <br>
-    <center><%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-lg"%></center>
   </div>
 </div>
 
 <div class="container">
+  <br>
+  <center><%= link_to "View our entire fleet", cars_path, class: "btn btn-primary btn-lg"%></center>
   <div>
     <center><h1 class="mt-5">🔥 Our top picks this week 🔥</h1></center>
   </div>
-
   <br>
-
-  <center><%= link_to "View our entire fleet", cars_path, class: "btn btn-primary btn-lg"%></center>
-
   <div class="container mt-5 mb-5">
     <div class="cards">
       <% @cars.each_with_index do |car, index| %>
         <% if (index < 3) %>
           <div class="card">
-            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-            url(https://cdn.luxe.digital/media/2021/11/26104913/best-classic-cars-vintage-Jaguar-E-Type-1961-old-luxe-digital%402x.jpg.webp)">
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)),
+            url(<%=car.photo_url%>)">
             </div>
             <div class="card-body">
             <h5 class="card-title"><%= link_to car.model, car_path(car) %></h5>
-            <p class="card-text">Volkswagen Van “Samba” diecast model with opening doors and a high level of detail throughout. The iconic two-tone paint design has been recreated here, authentically matching the design of the original with a number of other features that stay faithful to the original. The interior is equally rich in detail, and can be seen through the doors, windows and opening hatch-style boot.</p>
-            <%= link_to "£#{car.price} - Check Availability", car_path(car), class: "btn btn-primary"%>
+            <p class="card-text"><%= car.description %></p>
+            <%= link_to "£#{car.price} per day - check availability", car_path(car), class: "btn btn-primary"%>
             </div>
           </div>
         <% end %>
