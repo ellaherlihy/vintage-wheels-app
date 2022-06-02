@@ -1,17 +1,12 @@
+<br>
+<br>
+<br>
+
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX20188728.jpg" %> Vintage Wheels
     <% end %>
-
-  <%= simple_form_for :search, url: cars_path, method: :get do |f| %>
-    <div class="search-form-control form-group">
-      <input placeholder="Enter your location or postcode" class="form-control string required" type="text" name="search[query]" id="search_query" />
-      <button name="button" type="submit" class="btn btn-flat">
-        <i class="fas fa-search"></i>
-      </button>
-    </div>
-  <% end %>
 
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -54,7 +49,7 @@
 
 <br>
 <div class="container xyz mt-5">
-  <h3>New Car</h3>
+  <h3>Add New Car</h3>
   <%= simple_form_for [@car] do |f| %>
     <%= f.input :brand %>
     <%= f.input :model %>
@@ -66,6 +61,10 @@
     <%= f.input :location %>
     <%= f.input :price %>
     <%# <%= f.association :user, label_method: :first_name %>
-    <%= f.submit "Create", class: "btn btn-primary" %>
+    <%= f.submit "Add Car", class: "btn btn-primary" %>
   <% end %>
 </div>
+
+<br>
+<br>
+<br>

@@ -20,19 +20,16 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav me-auto">
-      <%# if user_signed_in? %>
-        <%= link_to "My Bookings", my_bookings_path, class: "nav-link" %>
-        <li class="nav-item active">
-          <% if user_signed_in? %>
-              <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link"%>
-          <% else %>
-              <%= link_to "Sign In", new_user_session_path, class: "nav-link" %>
-              <%= link_to "Sign Up", new_user_registration_path, class: "nav-link"%>
-          <% end %>
-        </li>
-
-
-
+      <%= link_to "My Bookings", my_bookings_path, class: "nav-link" %>
+      <li class="nav-item active">
+        <% if user_signed_in? %>
+          <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link"%>
+        <% else %>
+          <%= link_to "Sign In", new_user_session_path, class: "nav-link" %>
+          <%= link_to "Sign Up", new_user_registration_path, class: "nav-link"%>
+        <% end %>
+      </li>
+    </ul>
 
         <%# <li class="nav-item">
           <%= link_to "Messages", "#", class: "nav-link" </li> %>
@@ -78,11 +75,14 @@
       <% @cars.each_with_index do |car, index| %>
         <% if (index < 3) %>
           <div class="card">
-            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(<%=car.photo_url%>)"></div>
-            <div class="card-body">
-              <h5 class="card-title"><%= link_to car.model, car_path(car) %></h5>
-              <p class="card-text"><%= car.description %></p>
-              <%= link_to "£#{car.price} per day - check availability", car_path(car), class: "btn btn-primary"%>
+
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)),
+            url(<%=car.photo_url%>)">
+            </div>
+            <div class="card-body d-flex flex-column">
+            <center><h5 class="card-title"><%= link_to "#{car.brand} #{car.model}", car_path(car) %></h5></center>
+            <p class="card-text text-justify"><%= car.description %></p>
+            <%= link_to "£#{car.price.round} per day! <b>BOOK ME</b>".html_safe, car_path(car), class: "mt-auto btn btn-primary"%>
             </div>
           </div>
         <% end %>
@@ -90,6 +90,9 @@
     </div>
   </div>
 </div>
+
+<br>
+<br>
 
 <div class="footer">
   <div class="footer-links">
