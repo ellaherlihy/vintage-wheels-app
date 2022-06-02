@@ -1,0 +1,52 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    <div class="container-fluid">
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <%= image_tag "https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX20188728.jpg" %> Vintage Wheels
+      <% end %>
+
+     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
+            <%= link_to "My Bookings", my_bookings_path, class: "nav-link" %>
+            <li class="nav-item active">
+              <% if user_signed_in? %>
+                <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link"%>
+              <% else %>
+                <%= link_to "Sign In", new_user_session_path, class: "nav-link" %>
+                <%= link_to "Sign Up", new_user_registration_path, class: "nav-link"%>
+              <% end %>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+<div class="container mb-5">
+    <div class="cars-heading">
+    <br>
+    <br>
+    <br>
+      <center><h1>My Garage</h1></center>
+    <br>
+    </div>
+
+    <div class="cards">
+      <% current_user.cars.each do |car| %>
+      <div class="card">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.3)), url(<%=car.photo_url%>)">
+        </div>
+        <div class="card-body">
+          <center><h5 class="card-title"><%= link_to "#{car.brand} #{car.model}", car_path(car)%></h5></center>
+          <center><%= "£#{car.price.round} per day"%></center>
+          <center><%=link_to "Edit details", car_path(car), class: "btn btn-primary"%></center>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+
+</div>

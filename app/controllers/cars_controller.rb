@@ -28,6 +28,11 @@ class CarsController < ApplicationController
     @booking = Booking.new
   end
 
+  def update
+    @car = Car.find(params[:id])
+    @booking = Booking.new
+  end
+
 private
   def car_params
     params.require(:car).permit(:model, :year, :brand, :price, :features, :color, :location, :description, :users_id, :photo_url)
