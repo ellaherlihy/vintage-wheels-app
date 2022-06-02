@@ -1,35 +1,39 @@
 <body>
-  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-    <div class="container-fluid">
-      <%= link_to root_path, class: "navbar-brand" do %>
-        <%= image_tag "https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX20188728.jpg" %> Vintage Wheels
-      <% end %>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid">
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag "https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX20188728.jpg" %> Vintage Wheels
+    <% end %>
 
-      <%= simple_form_for :search, url: cars_path, method: :get do |f| %>
-        <div class="search-form-control form-group">
-          <input placeholder="Enter your location or postcode" class="form-control string required" type="text" name="search[query]" id="search_query" />
-          <button name="button" type="submit" class="btn btn-flat">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      <% end %>
+    <%= simple_form_for :search, url: cars_path, method: :get do |f| %>
+      <div class="search-form-control form-group">
+        <input placeholder="Enter your location or postcode" class="form-control string required" type="text" name="search[query]" id="search_query" />
+        <button name="button" type="submit" class="btn btn-flat">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    <% end %>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto">
-          <%# if user_signed_in? %>
-            <%= link_to "My Bookings", my_bookings_path, class: "nav-link" %>
-            <li class="nav-item active">
-              <% if user_signed_in? %>
-                <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link"%>
-              <% else %>
-                <%= link_to "Sign In", new_user_session_path, class: "nav-link" %>
-                <%= link_to "Sign Up", new_user_registration_path, class: "nav-link"%>
-              <% end %>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item active">
+          <% if user_signed_in? %>
+            <li class="nav-item dropdown">
+              <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://mpng.subpng.com/20190227/zox/kisspng-clip-art-computer-icons-openclipart-user-vector-gr-my-svg-png-icon-free-download-14-352-onlinewe-5c7704f7cff2b1.3948772115513039278518.jpg" />
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/my_bookings">View Bookings</a>
+                <a class="dropdown-item" href="/users/index">View Garage</a>
+                <a class="dropdown-item" href="/users/sign_out">Sign Out</a>
+              </div>
             </li>
+          <% else %>
+            <%= link_to "Sign In", new_user_session_path, class: "nav-link" %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
             <%# <li class="nav-item"> %>
               <%# <%= link_to "Messages", "#", class: "nav-link" %>
             </li>
@@ -62,9 +66,6 @@
       <br>
         <center><h1>Available Vintage Wheels</h1></center>
       <br>
-        <div class="buttonss">
-          <a class="btn btn-gradient" href=<%= new_car_path(@car) %>>Add a New Car</a>
-        </div>
     </div>
 
     <div class="cards">
