@@ -14,6 +14,8 @@
   width: 400px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
   border: 1px solid #E7E7E7;
+  background-color:#f0e7da;
+  opacity: 1;
 }
 
 .search-form-control .form-control:focus {
@@ -22,13 +24,13 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
-.btn-flat {
-  color: white;
-  padding: 0px 24px;
-  border-radius: 4px;
-  background: red;
-  transition: background 0.3s ease;
-}
+// .btn-flat {
+//   color: white;
+//   padding: 0px 24px;
+//   border-radius: 4px;
+//   // background: red;
+//   transition: background 0.3s ease;
+// }
 
 .btn-flat:hover {
   background: darkred;
