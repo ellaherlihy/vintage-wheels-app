@@ -24,6 +24,10 @@
     </div>
   </div>
 
+  <br>
+  <br>
+
+
 <div class="container mb-5">
     <div class="cars-heading">
     <br>
@@ -41,7 +45,7 @@
         <div class="card-body">
           <center><h5 class="card-title"><%= link_to "#{car.brand} #{car.model}", car_path(car)%></h5></center>
           <center><%= "£#{car.price.round} per day"%></center>
-          <center><%=link_to "Edit details", car_path(car), class: "btn btn-primary"%></center>
+          <center><%=link_to "Edit details", edit_car_path(car), class: "btn btn-primary"%></center>
         </div>
       </div>
       <% end %>
