@@ -51,7 +51,7 @@
     </div>
   </div>
 
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url(<%=@car.photo_url%>)">
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%=@car.photo_url%>)">
     <br>
     <br>
     <br>
@@ -72,6 +72,7 @@
     <div class="car-card flex-container" style = "margin-right: 50px">
       <ul style="list-style: none">
         <h1><strong>Car Details</strong></h1>
+
         <li><%= "<b>Brand</b>: #{@car.brand}".html_safe %></li>
         <li><%= "<b>Model</b>: #{@car.model}".html_safe %></li>
         <li><%= "<b>Year</b>: #{@car.year}".html_safe %></li>
@@ -84,7 +85,7 @@
     </div>
 
     <div class="container" style = "margin-left: 50px">
-      <h1 class='mb-3 text-primary display-6'><strong>Enter Booking Details</strong></h1>
+      <h1 class='mb-3 text-primary display-6 text-black'><strong>🚗 Enter Booking Details 🚗</strong></h1>
       <%= simple_form_for([@car, @booking]) do |f| %>
         <%= f.input :start_date, as: :date, html5: true %>
         <%= f.input :end_date, as: :date, html5: true %>
