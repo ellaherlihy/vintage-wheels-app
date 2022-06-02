@@ -3,13 +3,15 @@
   padding: 8px 24px;
   border-radius: 4px;
   font-weight: bold;
-  background: linear-gradient(#167FFB, #0F60C4);
+  background: $burgundy;
   transition: background 0.3s ease;
-  border: 1px solid #0F60C4;
+  // border: 1px solid #0F60C4;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
+
 .btn-gradient:hover {
-  background: linear-gradient(#147EFF, #0F67DA);
+  background: $camel;
   color: white;
 }
 
@@ -25,4 +27,10 @@
   border-radius: 4px;
   background: rgb(205, 111, 44);
   transition: background 0.3s ease;
+}
+
+.btn-gradient:hover {
+  color: #fff;
+  background-color: #6c1f23;
+  border-color: #661d21;
 }
