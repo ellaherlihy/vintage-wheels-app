@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   resources :cars, only: [:index, :new, :create, :destroy, :show] do
     resources :bookings, only: [:new, :create]
   end
-  resources :bookings, only: [:index]
+  resources :bookings, only: [:index, :destroy]
   get '/my_bookings', to: "bookings#my_bookings"
 end
