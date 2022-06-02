@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX20188728.jpg" %> Vintage Wheels
     <% end %>
 
@@ -52,19 +52,19 @@
   </div>
 </div>
 
-
+<br>
 <div class="container xyz mt-5">
   <h3>New Car</h3>
   <%= simple_form_for [@car] do |f| %>
+    <%= f.input :brand %>
     <%= f.input :model %>
     <%= f.input :year %>
-    <%= f.input :brand %>
-    <%= f.input :price %>
+    <%= f.input :description %>
     <%= f.input :features %>
     <%= f.input :color %>
-    <%= f.input :location %>
-    <%= f.input :description %>
     <%= f.input :photo_url %>
+    <%= f.input :location %>
+    <%= f.input :price %>
     <%# <%= f.association :user, label_method: :first_name %>
     <%= f.submit "Create", class: "btn btn-primary" %>
   <% end %>

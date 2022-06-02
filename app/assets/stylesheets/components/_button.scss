@@ -18,3 +18,11 @@
   flex-direction: row;
   align-content: space-around;
 }
+
+.btn-flat {
+  color: white;
+  padding: 0px 24px;
+  border-radius: 4px;
+  background: rgb(205, 111, 44);
+  transition: background 0.3s ease;
+}
