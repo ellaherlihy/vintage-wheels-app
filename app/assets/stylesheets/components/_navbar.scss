@@ -1,7 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: #7f2429;
-  height: 96px;
+  height: 72px;
   position: fixed;
   top: 0;
   left: 0;
@@ -18,7 +18,7 @@
 .navbar-lewagon .navbar-brand img {
   width: 60px;
   border-radius: 50%;
-  margin: 40px;
+  margin-right: 4px;
 }
 
 .navbar-nav .nav-link {
@@ -33,7 +33,7 @@
 }
 
 .navbar-light .navbar-brand {
-  color:#b37b51;
+  color: #b37b51;
   font-weight: bolder;
   font-size: 32px;
   letter-spacing: 8px;
