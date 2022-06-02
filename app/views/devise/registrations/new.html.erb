@@ -1,36 +1,3 @@
-<body>
-  <br>
-  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-    <div class="container-fluid">
-      <%= link_to root_path, class: "navbar-brand" do %>
-        <%= image_tag "https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX20188728.jpg" %> Vintage Wheels
-      <% end %>
-
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto">
-          <%# if user_signed_in? %>
-            <li class="nav-item active">
-              <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-            </li>
-                <%#= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-              </div>
-            </li>
-          <%# else %>
-            <!--li class="nav-item"-->
-              <%#= link_to "Login", new_user_session_path, class: "nav-link" %>
-            <!--/li-->
-          <%# end %>
-        </ul>
-      </div>
-    </div>
-  </div>
-
 <div class="container mt-5">
   <h2>Sign up</h2>
 
@@ -64,5 +31,4 @@
       <%# <%= render "devise/shared/links", class: "container m-5, btn btn-primary"%>
     </div>
   <% end %>
-
 </div>
