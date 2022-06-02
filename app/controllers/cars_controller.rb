@@ -4,6 +4,12 @@ class CarsController < ApplicationController
     if params[:search]
       @cars = @cars.where("location ILIKE ?", "%#{params[:search][:query]}%")
     end
+    @markers = @cars.geocoded.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude
+      }
+    end
   end
 
   def new
