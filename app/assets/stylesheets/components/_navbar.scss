@@ -37,6 +37,15 @@
   font-weight: bolder;
   font-size: 32px;
   letter-spacing: 8px;
+
+  svg {
+    width: 100px;
+  }
+
+  g {
+    fill: white;
+  }
+
 }
 
 .container-fluid {

@@ -2,6 +2,7 @@
   <br>
   <br>
     <center><a class="mt-5 btn btn-primary btn-lg" href=<%= new_car_path(@car) %>>Add a New Car</a></center>
+    <br>
     <div class="cards">
       <% current_user.cars.each do |car| %>
       <div class="card">
@@ -10,7 +11,8 @@
         <div class="card-body">
           <center><h5 class="card-title"><%= link_to "#{car.brand} #{car.model}", car_path(car)%></h5></center>
           <center><%= "£#{car.price.round} per day"%></center>
-          <center><%=link_to "Edit details", edit_car_path(car), class: "btn btn-primary"%></center>
+          <center><%=link_to "Edit details", edit_car_path(car), class: "btn btn-primary mt-3"%></center>
+          <center><%=link_to "Delete this car", car_path(car), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this car?"}, class: "btn btn-danger mt-3"%></center>
         </div>
       </div>
       <% end %>
