@@ -13,8 +13,11 @@ class CarsController < ApplicationController
   def create
     @car = Car.new(car_params)
     @car.user = current_user
-    @car.save
-    redirect_to car_path(@car)
+    if @car.save
+      redirect_to car_path(@car)
+    else
+      render "new", status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -30,7 +33,15 @@ class CarsController < ApplicationController
 
   def update
     @car = Car.find(params[:id])
-    @booking = Booking.new
+    if @car.update(car_params)
+      redirect_to users_index_path(@car)
+    else
+      render "edit", status: :unprocessable_entity
+    end
+  end
+
+  def edit
+    @car = Car.find(params[:id])
   end
 
 private
