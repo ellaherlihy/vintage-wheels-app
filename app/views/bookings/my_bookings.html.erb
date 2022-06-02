@@ -4,55 +4,44 @@
       <%= image_tag "https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX20188728.jpg" %> Vintage Wheels
     <% end %>
 
-  <%= simple_form_for :search, url: cars_path, method: :get do |f| %>
-    <div class="search-form-control form-group">
-      <input placeholder="Enter your location or postcode" class="form-control string required" type="text" name="search[query]" id="search_query" />
-      <button name="button" type="submit" class="btn btn-flat">
-        <i class="fas fa-search"></i>
-      </button>
-    </div>
-  <% end %>
+    <%= simple_form_for :search, url: cars_path, method: :get do |f| %>
+      <div class="search-form-control form-group">
+        <input placeholder="Enter your location or postcode" class="form-control string required" type="text" name="search[query]" id="search_query" />
+        <button name="button" type="submit" class="btn btn-flat">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    <% end %>
 
-  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav me-auto">
-      <%# if user_signed_in? %>
-        <%= link_to "My Bookings", my_bookings_path, class: "nav-link" %>
-        <%= link_to "Sign Up", new_user_registration_path, class: "nav-link"%>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
         <li class="nav-item active">
           <% if user_signed_in? %>
-              <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link"%>
+            <li class="nav-item dropdown">
+              <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://mpng.subpng.com/20190227/zox/kisspng-clip-art-computer-icons-openclipart-user-vector-gr-my-svg-png-icon-free-download-14-352-onlinewe-5c7704f7cff2b1.3948772115513039278518.jpg" />
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/my_bookings">View Bookings</a>
+                <a class="dropdown-item" href="/users/index">View Garage</a>
+                <a class="dropdown-item" href="/users/sign_out">Sign Out</a>
+              </div>
+            </li>
           <% else %>
-              <%= link_to "Sign In", new_user_session_path, class: "nav-link" %>
+            <%= link_to "Sign In", new_user_session_path, class: "nav-link" %>
           <% end %>
         </li>
-
-
-
-
-        <%# <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" </li> %>
-        <%# <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <%# <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown"> %>
-            <%# <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%# <%= link_to "Another action", "#", class: "dropdown-item" %>
-            <%# <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
-        </li>
-      <%# else %>
-        <!--li class="nav-item"-->
-          <%#= link_to "Login", new_user_session_path, class: "nav-link" %>
-        <!--/li-->
-      <%# end %>
-    </ul>
+      </ul>
+    </div>
   </div>
 </div>
-<br>
+</div>
+</li>
+</ul>
+</div>
+</div>
 
+<br>
+<br>
+<br>
 <br>
 <br>
 
@@ -73,7 +62,7 @@
             <div class="card-body">
             <h5 class="card-title"><%= "#{booking.start_date} to #{booking.end_date}" %></h5>
             <p class="card-text"><%= "Brand: #{booking.car.brand} Model: #{booking.car.model}, Year: #{booking.car.year}" %></p>
-            <% booking_duration = distance_of_time_in_words(booking.start_date, booking.end_date).split(" ").first.to_i%>
+            <% booking_duration = distance_of_time_in_words(booking.start_date, booking.end_date).split(" ").first.to_i %>
             <p class="card-text"><%= "Length of hire: #{booking_duration} days" %></p>
             <% booking_cost = (booking_duration * booking.car[:price])%>
             <p class="card-text"><%= "Hire total: £#{booking_cost.round}" %></p>
@@ -82,7 +71,7 @@
           </div>
       <% end %>
     </div>
-    <center><%= link_to "View the fleet!", cars_path, class:'btn btn-primary mb-5 mt-5'%></center>
+    <center><%= link_to "View the fleet!", cars_path, class:'btn btn-primary mb-5 btn-lg'%></center>
   </div>
 
 </body>

@@ -5,6 +5,12 @@ gem "dotenv-rails", groups: [:development, :test]
 
 gem "cloudinary"
 
+gem "searchkick"
+
+gem "elasticsearch"
+
+gem "algoliasearch-rails"
+
 ruby "3.0.3"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"

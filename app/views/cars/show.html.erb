@@ -18,18 +18,18 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto">
-          <%# if user_signed_in? %>
-            <%= link_to "My Bookings", my_bookings_path, class: "nav-link" %>
-            <%= link_to "Sign Up", new_user_registration_path, class: "nav-link"%>
-            <li class="nav-item active">
-              <% if user_signed_in? %>
-                <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link"%>
-              <% else %>
-                <%= link_to "Sign In", new_user_session_path, class: "nav-link" %>
-              <% end %>
-            </li>
+          <%= link_to "My Bookings", my_bookings_path, class: "nav-link" %>
+          <li class="nav-item active">
+            <% if user_signed_in? %>
+              <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link"%>
+            <% else %>
+              <%= link_to "Sign In", new_user_session_path, class: "nav-link" %>
+              <%= link_to "Sign Up", new_user_registration_path, class: "nav-link"%>
+            <% end %>
+          </li>
+        </ul>
             <li class="nav-item">
               <%# <%= link_to "Messages", "#", class: "nav-link" %>
             </li>
@@ -72,12 +72,15 @@
     <div class="car-card flex-container" style = "margin-right: 50px">
       <ul style="list-style: none">
         <h1><strong>Car Details</strong></h1>
-        <li ><%= "Brand: #{@car.brand}" %></li>
-        <li><%= "Model: #{@car.model}" %></li>
-        <li><%= "Year: #{@car.year}" %></li>
-        <li><%= "Color: #{@car.color}" %></li>
-        <li><%= "#{@car.description}"%></li>
-        <li><b><%= "£#{@car.price} per day" %></b></li>
+
+        <li><%= "<b>Brand</b>: #{@car.brand}".html_safe %></li>
+        <li><%= "<b>Model</b>: #{@car.model}".html_safe %></li>
+        <li><%= "<b>Year</b>: #{@car.year}".html_safe %></li>
+        <li><%= "<b>Color</b>: #{@car.color}".html_safe %></li>
+        <br>
+        <li><%= "<b>Description</b>: <em>#{@car.description}</em>".html_safe%></li>
+        <br>
+        <li style="<b></b>"><b><%= "£#{@car.price.round} per day".html_safe %></b></li>
       </ul>
     </div>
 
@@ -92,11 +95,6 @@
   </div>
 
   <hr>
-
-  <div class="container mt-3 d-flex justify-content-center">
-      <a class="btn btn-gradient m-2" <%= link_to "Delete Car", car_path(@car), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></a>
-      <a class="btn btn-gradient m-2" href=<%= cars_path(@car) %>>Back to Car List</a>
-  </div>
     <br>
     <br>
     <br>
