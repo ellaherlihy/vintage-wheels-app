@@ -94,6 +94,20 @@
     </div>
   </div>
 
+    <div>
+      <%= simple_form_for([@car, @review]) do |f| %>
+        <%= f.input :content %>
+        <%= f.input :rating %>
+        <%= f.button :submit, class: 'btn btn-primary' %>
+      <% end %>
+
+  <% @reviews.each do |review|  %>
+  <%= review.content %>
+  <%= review.rating %>
+  <% end %>
+  </div>
+  </div>
+
   <hr>
     <br>
     <br>
