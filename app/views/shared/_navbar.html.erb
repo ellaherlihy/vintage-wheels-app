@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX20188728.jpg" %> Vintage Wheels
+      <%= render "shared/car_logo" %>
     <% end %>
 
     <%= simple_form_for :search, url: cars_path, method: :get do |f| %>
@@ -20,8 +20,8 @@
             <li class="nav-item dropdown">
               <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://mpng.subpng.com/20190227/zox/kisspng-clip-art-computer-icons-openclipart-user-vector-gr-my-svg-png-icon-free-download-14-352-onlinewe-5c7704f7cff2b1.3948772115513039278518.jpg" />
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="/my_bookings">View Bookings</a>
-                <a class="dropdown-item" href="/users/index">View Garage</a>
+                <a class="dropdown-item" href="/my_bookings">View My Bookings</a>
+                <a class="dropdown-item" href="/users/index">View My Garage</a>
                 <a class="dropdown-item" href="/users/sign_out">Sign Out</a>
               </div>
             </li>
