@@ -40,12 +40,14 @@
     </div>
   </div>
 
-    <div>
-      <%= simple_form_for([@car, @review]) do |f| %>
-        <%= f.input :content %>
-        <%= f.input :rating %>
-        <%= f.button :submit, class: 'btn btn-primary' %>
-      <% end %>
+    <div class="container" style = "margin-left: 210px">
+       <h1 class='mb-6 text-primary display-6 text-black' style = "margin: 20px" ><strong>Leave your review here</strong></h1>
+        <%= simple_form_for([@car, @review]) do |f| %>
+          <%= f.input :content %>
+          <%= f.input :rating %>
+          <%= f.button :submit, class: 'btn btn-primary' %>
+        <% end %>
+    </div>
 
   <% @reviews.each do |review|  %>
   <%= review.content %>
