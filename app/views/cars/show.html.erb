@@ -40,25 +40,29 @@
       <% end %>
     </div>
   </div>
+  <br>
 <hr>
-    <div class="container" style = "margin-left: 200px margin-right: 200px">
-       <h1 class='mb-6 text-primary display-6 text-black' style = "margin: 20px" ><strong>Leave your review here</strong></h1>
+  <div class="container review-card">
+    <div class="container">
+       <h1 class='mb-6 text-primary display-6 text-black' ><strong>Leave your review here</strong></h1>
         <%= simple_form_for([@car, @review]) do |f| %>
           <%= f.input :content %>
           <%= f.input :rating %>
           <%= f.button :submit, class: 'btn btn-primary' %>
         <% end %>
     </div>
+    <div class = "container" style = "margin-left: 75px">
+      <h1 class='text-primary display-6 text-black' ><strong>User Reviews</strong></h1>
+      <% @reviews.each do |review|  %>
+        <b>Rating:</b> <%= review.rating %>
+        <br>
+        <b>Comment:</b> <%= review.content %>
+        <br>
+        <br>
 
-  <% @reviews.each do |review|  %>
-  <%= review.content %>
-  <%= review.rating %>
-  <% end %>
+      <% end %>
+    </div>
   </div>
-  </div>
-
-    <br>
-    <br>
     <br>
     <div class="footer">
       <div class="footer-links">
