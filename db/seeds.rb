@@ -57,7 +57,10 @@ User.create(email: 'ella@email.com', password: 'password', first_name: 'Ella', l
   location = ['40 New Road London','338 Manor Road London', '12 Manor Road London', '4 Church Street
     London', '335 Church Road London', '45 West Street London', '20 Victoria Street London', '24 The Green London',
     '136 Hermitage Rd Harringay London', '250 Randolph Ave London', '55 Old Broad St, London', '26 Great Queen St, London',
-    '20 Vauxhall Bridge Rd', '7 Monohaus 143 Mare St London', '61-63 Uxbridge Rd, London', '3-4 Allied Way London']
+    '20 Vauxhall Bridge Rd', '7 Monohaus 143 Mare St London', '61-63 Uxbridge Rd, London', '3-4 Allied Way London',
+    'Shoreditch Stables, North, 138 Kingsland Rd, London', 'Houghton St, London', '12 Upper St Martin London',
+    '5 Stable St, London', '4 Derry St, London', '22 Kingly St, Carnaby, London', '399 Edgware Rd, London',
+    '136 Hermitage Rd Harringay London']
 
 #   description = Faker::Vehicle.transmission
 #   price = Faker::Number.between(from: 50000, to: 200000)
@@ -98,3 +101,5 @@ Car.create(user_id: user, model: 'Miura',               year: 1966,  brand: 'Lam
 # 5.times do
 #   Booking.create(start_date:Faker::Date.between(from: '2022-08-01', to: '2024-08-01'), end_date: Faker::Date.between(from: '2022-08-01', to: '2024-08-01') ,user_id: User.all.sample.id , car_id: Car.all.sample.id)
 # end
+
+puts "Finished!"
