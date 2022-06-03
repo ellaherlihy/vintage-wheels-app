@@ -1,14 +1,10 @@
 <br>
 <br>
-<br>
-<br>
-<br>
-
 <% if @my_bookings.present?%>
- <center><h1 class="bookings mb-5 text-primary display-6">Upcoming rides!</h1></center>
+ <center><h1 class="bookings mt-5 text-primary display-6">Upcoming rides!</h1></center>
 <% else %>
-  <center><h1 class="bookings mb-5 text-primary display-6">Sad times - no rides booked yet!</h1></center>
-  <center><h1 class="bookings mb-5 text-primary display-6">Get booking 👇</h1></center>
+  <center><h1 class="bookings mt-5 text-primary display-6">Sad times - no rides booked yet!</h1></center>
+  <center><h1 class="bookings mt-5 text-primary display-6">Get booking 👇</h1></center>
 <% end %>
 
 <div class="container mt-5 mb-5">
@@ -30,23 +26,5 @@
           </div>
       <% end %>
     </div>
-    <center><%= link_to "View the fleet!", cars_path, class:'btn btn-primary mb-5 btn-lg'%></center>
+    <center><%= link_to "Book more!", cars_path, class:'btn btn-primary mb-5 btn-lg'%></center>
   </div>
-
-</body>
-
-<div class="footer">
-  <div class="footer-links">
-    <a href="#"><i class="fab fa-github"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-  </div>
-  <div class="footer-copyright">
-    <%= image_tag "https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX20188728.jpg" %> Vintage Wheels | 2022
-  </div>
-  <div class="footer-copyright">
-    All rights reserved, Built with <i class="fas fa-heart"></i> in London
-  </div>
-</div>
