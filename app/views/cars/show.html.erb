@@ -23,6 +23,7 @@
         <li><%= "<b>Model</b>: #{@car.model}".html_safe %></li>
         <li><%= "<b>Year</b>: #{@car.year}".html_safe %></li>
         <li><%= "<b>Color</b>: #{@car.color}".html_safe %></li>
+        <li><%= "<b>Location</b>: #{@car.location}".html_safe%></li>
         <br>
         <li><%= "<b>Description</b>: <em>#{@car.description}</em>".html_safe%></li>
         <br>
@@ -42,6 +43,7 @@
   </div>
   <br>
 <hr>
+
   <div class="container review-card">
     <div class="container">
        <h1 class='mb-6 text-primary display-6 text-black' ><strong>Leave your review here</strong></h1>
@@ -59,26 +61,9 @@
         <b>Comment:</b> <%= review.content %>
         <br>
         <br>
-
       <% end %>
     </div>
   </div>
-    <br>
-    <div class="footer">
-      <div class="footer-links">
-        <a href="#"><i class="fab fa-github"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-      </div>
-      <div class="footer-copyright">
-        <%= image_tag "https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX20188728.jpg" %> Vintage Wheels | 2022
-      </div>
-      <div class="footer-copyright">
-        All rights reserved, Built with <i class="fas fa-heart"></i> in London
-      </div>
-    </div>
   <br>
   <br>
   <br>
