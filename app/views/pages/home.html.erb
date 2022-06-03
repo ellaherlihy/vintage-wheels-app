@@ -9,14 +9,10 @@
       <br>
     </div></center>
   </div>
-
-  <div class="container">
-    <br>
-
     <center>
     <a href='/cars'>
-    <button type="button" class="button">
-      <span class="button__text">View Fleet</span>
+    <button type="button" class="button mt-3">
+      <span class="button__text">View our enitre fleet</span>
       <span class="button__icon">
         <ion-icon name="car-sport-outline"></ion-icon>
       </span>
@@ -24,7 +20,7 @@
     </a>
     </center>
 
-    <div class="container mt-5">
+    <div class="container mt-3">
       <div class="cards">
         <% @cars.each_with_index do |car, index| %>
           <% if (index < 3) %>
@@ -49,6 +45,6 @@
   <br>
   <br>
   <br>
-  <br>
+
 
   <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>

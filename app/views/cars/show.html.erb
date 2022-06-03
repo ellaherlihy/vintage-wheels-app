@@ -7,7 +7,7 @@
     <div class="container">
       <h1><%="#{@car.brand} #{@car.model}, #{@car.year}"%></h1>
       <br>
-      <h2><%= ['A timeless classic', 'When You Get It, You Get It', 'Smarter than luxury', 'What a Luxury Car Should Be', 'A modern boutique with vintage charm', 'Handmade. Vintage. Local.'].sample %></h2>
+      <h2><%= ['A timeless classic', 'The hottest wheels in town', 'Impress everyone', 'What a vintage car should be', 'The epitome of vintage charm', 'Ride it like you stole it', "You're gonna look great in this car", 'Wolf of Wall Street vibes'].sample %></h2>
       <br>
     </div>
   </div>
@@ -31,7 +31,7 @@
     </div>
 
     <div class="container" style = "margin-left: 50px">
-      <h1 class='mb-3 text-primary display-6 text-black'><strong>🚗 Enter Booking Details 🚗</strong></h1>
+      <h1 class='mb-3 text-primary display-6 text-black'><strong>Enter Booking Details</strong></h1>
       <%= simple_form_for([@car, @booking]) do |f| %>
         <%= f.input :start_date, as: :date, html5: true %>
         <%= f.input :end_date, as: :date, html5: true %>
