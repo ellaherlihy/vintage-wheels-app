@@ -34,9 +34,10 @@
               <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)),
               url(<%=car.photo_url%>)">
               </div>
-              <div class="card-body d-flex flex-column">
+              <div class="card-body">
               <center><h5 class="card-title"><%= link_to "#{car.brand} #{car.model}", car_path(car) %></h5></center>
               <p class="card-text text-justify"><%= car.description %></p>
+
               <%= link_to "£#{car.price.round} per day! <b>BOOK ME</b>".html_safe, car_path(car), class: "mt-auto btn btn-primary"%>
               </div>
             </div>
