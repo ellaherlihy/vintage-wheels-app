@@ -55,7 +55,7 @@
     </div>
     <div class = "container" style = "margin-left: 75px">
       <h1 class='text-primary display-6 text-black' ><strong>User Reviews</strong></h1>
-      <% @reviews.each do |review|  %>
+      <% @car.reviews.each do |review|  %>
         <b>Rating:</b> <%= review.rating %>
         <br>
         <b>Comment:</b> <%= review.content %>
