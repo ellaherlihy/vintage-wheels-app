@@ -40,22 +40,45 @@
       <% end %>
     </div>
   </div>
+  <br>
 <hr>
-    <div class="container" style = "margin-left: 200px margin-right: 200px">
-       <h1 class='mb-6 text-primary display-6 text-black' style = "margin: 20px" ><strong>Leave your review here</strong></h1>
+  <div class="container review-card">
+    <div class="container">
+       <h1 class='mb-6 text-primary display-6 text-black' ><strong>Leave your review here</strong></h1>
         <%= simple_form_for([@car, @review]) do |f| %>
           <%= f.input :content %>
           <%= f.input :rating %>
           <%= f.button :submit, class: 'btn btn-primary' %>
         <% end %>
     </div>
+    <div class = "container" style = "margin-left: 75px">
+      <h1 class='text-primary display-6 text-black' ><strong>User Reviews</strong></h1>
+      <% @reviews.each do |review|  %>
+        <b>Rating:</b> <%= review.rating %>
+        <br>
+        <b>Comment:</b> <%= review.content %>
+        <br>
+        <br>
 
-  <% @reviews.each do |review|  %>
-  <%= review.content %>
-  <%= review.rating %>
-  <% end %>
+      <% end %>
+    </div>
   </div>
-  </div>
+    <br>
+    <div class="footer">
+      <div class="footer-links">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <div class="footer-copyright">
+        <%= image_tag "https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX20188728.jpg" %> Vintage Wheels | 2022
+      </div>
+      <div class="footer-copyright">
+        All rights reserved, Built with <i class="fas fa-heart"></i> in London
+      </div>
+    </div>
   <br>
   <br>
   <br>
