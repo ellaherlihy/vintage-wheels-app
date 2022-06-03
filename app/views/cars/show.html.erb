@@ -35,12 +35,13 @@
       <%= simple_form_for([@car, @booking]) do |f| %>
         <%= f.input :start_date, as: :date, html5: true %>
         <%= f.input :end_date, as: :date, html5: true %>
+        <%= f.input :special_request %>
         <%= f.button :submit, class: 'btn btn-primary' %>
       <% end %>
     </div>
   </div>
-
-    <div class="container" style = "margin-left: 210px">
+<hr>
+    <div class="container" style = "margin-left: 200px margin-right: 200px">
        <h1 class='mb-6 text-primary display-6 text-black' style = "margin: 20px" ><strong>Leave your review here</strong></h1>
         <%= simple_form_for([@car, @review]) do |f| %>
           <%= f.input :content %>
@@ -56,7 +57,6 @@
   </div>
   </div>
 
-  <hr>
     <br>
     <br>
     <br>
