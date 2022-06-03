@@ -7,25 +7,32 @@
   <center><h1 class="bookings mt-5 text-primary display-6">Get booking 👇</h1></center>
 <% end %>
 
-<div class="container mt-5 mb-5">
+  <div class="container mt-5 mb-5 booking-card">
     <div class="cards">
       <% @my_bookings.each do |booking| %>
         <div class="card">
           <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)),
             url(<%= booking.car.photo_url%>)">
+          </div>
+
+          <div class="container card-booking">
+            <div class="container mt-3">
+              <h5 class="card-title"><b>Booking from <%= "#{booking.start_date} to #{booking.end_date}" %></b></h5>
+              <p class="card-text"><b>Brand: </b><%= "#{booking.car.brand} Model: #{booking.car.model}" %></p>
+              <p class="card-text"><b>Year: </b><%= "#{booking.car.year}" %></p>
+              <% booking_duration = distance_of_time_in_words(booking.start_date, booking.end_date).split(" ").first.to_i %>
+              <p class="card-text"><b>Length of hire: </b><%= "#{booking_duration} days" %></p>
+              <% booking_cost = (booking_duration * booking.car[:price])%>
+              <p class="card-text"><b>Hire total: </b><%= " £#{booking_cost.round}" %></p>
             </div>
-            <div class="card-body">
-            <h5 class="card-title"><%= "#{booking.start_date} to #{booking.end_date}" %></h5>
-            <p class="card-text"><%= "Brand: #{booking.car.brand} Model: #{booking.car.model}, Year: #{booking.car.year}" %></p>
-            <% booking_duration = distance_of_time_in_words(booking.start_date, booking.end_date).split(" ").first.to_i %>
-            <p class="card-text"><%= "Length of hire: #{booking_duration} days" %></p>
-            <% booking_cost = (booking_duration * booking.car[:price])%>
-            <p class="card-text"><%= "Hire total: £#{booking_cost.round}" %></p>
-            <center><%= link_to "View car details", car_path(booking.car), class: "btn btn-danger mb-3" %></center>
-            <center><%= link_to "Cancel this booking", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this booking?"}, class: "btn btn-primary"%></center>
+            <div class="card-bookings">
+              <%= link_to "View car details", car_path(booking.car), class: "btn btn-danger mt-2 mb-3", style: "margin-right: 72px;" %>
+              <%= link_to "Cancel this booking", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this booking?"}, class: "btn btn-primary mt-2 mb-3"%>
             </div>
           </div>
+        </div>
       <% end %>
     </div>
+    <br>
     <center><%= link_to "Book a car!", cars_path, class:'btn btn-primary btn-lg'%></center>
   </div>
