@@ -55,7 +55,10 @@ User.create(email: 'ella@email.com', password: 'password', first_name: 'Ella', l
 #   year = Faker::Vehicle.year
 #   brand = Faker::Vehicle.make
   location = ['40 New Road London','338 Manor Road London', '12 Manor Road London', '4 Church Street
-    London', '335 Church Road London', '45 West Street London', '20 Victoria Street London', '24 The Green London']
+    London', '335 Church Road London', '45 West Street London', '20 Victoria Street London', '24 The Green London',
+    '136 Hermitage Rd Harringay London', '250 Randolph Ave London', '55 Old Broad St, London', '26 Great Queen St, London',
+    '20 Vauxhall Bridge Rd', '7 Monohaus 143 Mare St London', '61-63 Uxbridge Rd, London', '3-4 Allied Way London']
+
 #   description = Faker::Vehicle.transmission
 #   price = Faker::Number.between(from: 50000, to: 200000)
 #   features = Faker::Vehicle.standard_specs
