@@ -7,7 +7,7 @@
     <div class="container">
       <h1><%="#{@car.brand} #{@car.model}, #{@car.year}"%></h1>
       <br>
-      <h2><%= ['A timeless classic', 'When You Get It, You Get It', 'Smarter than luxury', 'What a Luxury Car Should Be', 'A modern boutique with vintage charm', 'Handmade. Vintage. Local.'].sample %></h2>
+      <h2><%= ['A timeless classic', 'The hottest wheels in town', 'Impress everyone', 'What a vintage car should be', 'The epitome of vintage charm', 'Ride it like you stole it', "You're gonna look great in this car", 'Wolf of Wall Street vibes'].sample %></h2>
       <br>
     </div>
   </div>
@@ -17,12 +17,15 @@
   <div class="container booking-page">
     <div class="car-card flex-container" style = "margin-right: 50px">
       <ul style="list-style: none">
-        <h1><strong>Car Details</strong></h1>
+        <br>
+        <h1>Car Details</h1>
+        <br>
 
         <li><%= "<b>Brand</b>: #{@car.brand}".html_safe %></li>
         <li><%= "<b>Model</b>: #{@car.model}".html_safe %></li>
         <li><%= "<b>Year</b>: #{@car.year}".html_safe %></li>
         <li><%= "<b>Color</b>: #{@car.color}".html_safe %></li>
+        <li><%= "<b>Location</b>: #{@car.location}".html_safe%></li>
         <br>
         <li><%= "<b>Description</b>: <em>#{@car.description}</em>".html_safe%></li>
         <br>
@@ -31,47 +34,44 @@
     </div>
 
     <div class="container" style = "margin-left: 50px">
-      <h1 class='mb-3 text-primary display-6 text-black'><strong>🚗 Enter Booking Details 🚗</strong></h1>
+       <br>
+      <h1 class='mb-3 text-primary display-6 text-black'><strong>Enter Booking Details</strong></h1>
+      <br>
       <%= simple_form_for([@car, @booking]) do |f| %>
         <%= f.input :start_date, as: :date, html5: true %>
         <%= f.input :end_date, as: :date, html5: true %>
+        <%= f.input :special_request %>
         <%= f.button :submit, class: 'btn btn-primary' %>
       <% end %>
     </div>
   </div>
+  <br>
+<hr>
 
-    <div class="container" style = "margin-left: 210px">
-       <h1 class='mb-6 text-primary display-6 text-black' style = "margin: 20px" ><strong>Leave your review here</strong></h1>
+  <div class="container review-card">
+    <div class="container">
+      <br>
+       <h1 class='mb-6 text-primary display-6 text-black' ><strong>Leave your review here</strong></h1>
+       <br>
         <%= simple_form_for([@car, @review]) do |f| %>
           <%= f.input :content %>
           <%= f.input :rating %>
           <%= f.button :submit, class: 'btn btn-primary' %>
         <% end %>
     </div>
-
-  <% @reviews.each do |review|  %>
-  <%= review.content %>
-  <%= review.rating %>
-  <% end %>
-  </div>
-  </div>
-
-  <hr>
-    <br>
-    <br>
-    <br>
-    <div class="footer">
-      <div class="footer-links">
-        <a href="#"><i class="fab fa-github"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-      </div>
-      <div class="footer-copyright">
-        <%= image_tag "https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX20188728.jpg" %> Vintage Wheels | 2022
-      </div>
-      <div class="footer-copyright">
-        All rights reserved, Built with <i class="fas fa-heart"></i> in London
-      </div>
+    <div class = "container" style = "margin-left: 75px">
+       <br>
+      <h1 class='text-primary display-6 text-black' ><strong>User Reviews</strong></h1>
+      <br>
+      <% @car.reviews.each do |review|  %>
+        <b>Rating:</b> <%= review.rating %>
+        <br>
+        <b>Comment:</b> <%= review.content %>
+        <br>
+        <br>
+      <% end %>
     </div>
+  </div>
+  <br>
+  <br>
+  <br>

@@ -17,6 +17,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_02_152429) do
   create_table "bookings", force: :cascade do |t|
     t.date "start_date"
     t.date "end_date"
+    t.text "special_request"
     t.bigint "user_id", null: false
     t.bigint "car_id", null: false
     t.datetime "created_at", null: false

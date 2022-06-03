@@ -62,3 +62,15 @@
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   text-decoration: none;
 }
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+}
+
+.review-card {
+  display: flex;
+  flex-direction: row;
+  align-content: space-around;
+}
