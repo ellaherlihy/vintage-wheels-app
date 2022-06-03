@@ -17,7 +17,9 @@
   <div class="container booking-page">
     <div class="car-card flex-container" style = "margin-right: 50px">
       <ul style="list-style: none">
+        <br>
         <h1>Car Details</h1>
+        <br>
 
         <li><%= "<b>Brand</b>: #{@car.brand}".html_safe %></li>
         <li><%= "<b>Model</b>: #{@car.model}".html_safe %></li>
@@ -32,7 +34,9 @@
     </div>
 
     <div class="container" style = "margin-left: 50px">
+       <br>
       <h1 class='mb-3 text-primary display-6 text-black'><strong>Enter Booking Details</strong></h1>
+      <br>
       <%= simple_form_for([@car, @booking]) do |f| %>
         <%= f.input :start_date, as: :date, html5: true %>
         <%= f.input :end_date, as: :date, html5: true %>
@@ -46,7 +50,9 @@
 
   <div class="container review-card">
     <div class="container">
+      <br>
        <h1 class='mb-6 text-primary display-6 text-black' ><strong>Leave your review here</strong></h1>
+       <br>
         <%= simple_form_for([@car, @review]) do |f| %>
           <%= f.input :content %>
           <%= f.input :rating %>
@@ -54,7 +60,9 @@
         <% end %>
     </div>
     <div class = "container" style = "margin-left: 75px">
+       <br>
       <h1 class='text-primary display-6 text-black' ><strong>User Reviews</strong></h1>
+      <br>
       <% @car.reviews.each do |review|  %>
         <b>Rating:</b> <%= review.rating %>
         <br>
