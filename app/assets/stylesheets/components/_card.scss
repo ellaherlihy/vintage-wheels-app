@@ -74,3 +74,15 @@
   flex-direction: row;
   align-content: space-around;
 }
+
+.card-booking {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+}
+
+.card-bookings {
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+}
